@@ -16,9 +16,9 @@ apply plugin: 'application'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-mainClassName = 'com.ceiba.parking.ceibaparking'
+mainClassName = 'com.ceiba.parking'
 
-group = 'com.ceiba.parking.ceibaparking'
+group = 'com.ceiba.parking'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
