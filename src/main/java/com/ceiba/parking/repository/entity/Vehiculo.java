@@ -1,4 +1,4 @@
-package com.ceiba.parking.models.entity;
+package com.ceiba.parking.repository.entity;
 
 import java.io.Serializable;
 
@@ -21,7 +21,7 @@ public class Vehiculo implements Serializable{
 
 	
 		
-	/* Getters and Setters */
+	// Getters and Setters 
 	public Long getId() {
 		return id;
 	}

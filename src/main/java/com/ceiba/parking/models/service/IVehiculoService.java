@@ -1,8 +1,8 @@
-package com.ceiba.parking.models.services;
+package com.ceiba.parking.models.service;
 
 import java.util.List;
 
-import com.ceiba.parking.models.entity.*;
+import com.ceiba.parking.repository.entity.*;
 
 public interface IVehiculoService {
 	

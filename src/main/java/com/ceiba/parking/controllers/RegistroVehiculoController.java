@@ -7,19 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ceiba.parking.models.service.IVehiculoService;
-import com.ceiba.parking.repository.entity.Vehiculo;
+import com.ceiba.parking.models.service.IRegistroVehiculoService;
+import com.ceiba.parking.repository.entity.RegistroVigilante;
 
 @RestController
 @RequestMapping("/api")
-public class VehiculoController {
-	
-	@Autowired
-	private IVehiculoService vehiculoService;
-	
-	@GetMapping("/vehiculos")
-	public List<Vehiculo> index(){
-		return vehiculoService.findAll();
-	}
+public class RegistroVehiculoController {
 
+	@Autowired
+	private IRegistroVehiculoService registroVehiculoService;
+	
+	@GetMapping(value = "/listavigilante")
+	public List<RegistroVigilante> index(){
+		return registroVehiculoService.findAll();
+	}
 }
