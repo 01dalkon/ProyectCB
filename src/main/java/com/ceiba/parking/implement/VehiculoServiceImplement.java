@@ -1,4 +1,4 @@
-package com.ceiba.parking.models.implement;
+package com.ceiba.parking.implement;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ceiba.parking.models.service.IVehiculoService;
 import com.ceiba.parking.repository.dao.IVehiculoDao;
-import com.ceiba.parking.repository.entity.Vehiculo;
+import com.ceiba.parking.repository.entity.VehiculoEntity;
+import com.ceiba.parking.service.IVehiculoService;
 
 @Service
 public class VehiculoServiceImplement implements IVehiculoService {
@@ -18,7 +18,7 @@ public class VehiculoServiceImplement implements IVehiculoService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Vehiculo> findAll() {
-		return (List<Vehiculo>) vehiculoDao.findAll();
+	public List<VehiculoEntity> findAll() {
+		return (List<VehiculoEntity>) vehiculoDao.findAll();
 	}
 }

@@ -2,7 +2,7 @@ package com.ceiba.parking.repository.dao;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.ceiba.parking.repository.entity.RegistroVigilante;
+import com.ceiba.parking.repository.entity.RegistroVigilanteEntity;
 
-public interface IRegistroVehiculoDao extends CrudRepository<RegistroVigilante, Long>{
+public interface IRegistroVehiculoDao extends CrudRepository<RegistroVigilanteEntity, Long>{
 }
