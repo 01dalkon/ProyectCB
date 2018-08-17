@@ -9,8 +9,26 @@ public class Registro {
 	private int cilindraje;
 	private Date fechaEntrada;
 	private Date fechaSalida;
+	private int valor;
+	private String tipoRegistro;
 
 	// Method Setters and Getters
+
+	public int getValor() {
+		return valor;
+	}
+
+	public String getTipoRegistro() {
+		return tipoRegistro;
+	}
+
+	public void setTipoRegistro(String tipoRegistro) {
+		this.tipoRegistro = tipoRegistro;
+	}
+
+	public void setValor(int valor) {
+		this.valor = valor;
+	}
 
 	public String getPlaca() {
 		return placa;
