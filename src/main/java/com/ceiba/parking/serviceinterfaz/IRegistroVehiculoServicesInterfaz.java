@@ -13,8 +13,10 @@ public interface IRegistroVehiculoServicesInterfaz {
 		
 		public RegistroVigilanteEntity buscarPorPlaca(String placa);
 		
-		public RegistroVigilanteEntity guardarRegistroVigilanteEntity(RegistroVigilanteEntity registroVigilanteEntity);
+		public RegistroVigilanteEntity guardarRegistroNuevo(RegistroVigilanteEntity registro);
 		
 		public void fntEliminaRegistroVigilanteEntity(Long id);
+		
+		long cantidadVehiculo(String tipo);
 				
 }

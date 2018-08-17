@@ -11,7 +11,9 @@ import excepcion.ExceptionVehiculoRegistro;
 public class VigilanteParqueadero {
 
 	private String VALIDAR_LETAR_A = "La Placa ingresada inicia por la letra A";
-
+	private String CANTIDAD_MOTO = "La cantidad de espacios para MOTOS disponibles estan agotadas";
+	private String CANTIDAD_CARRO = "La cantidad de espacios para CARROS disponibles estan agotadas";
+	
 	private String moto = "M";
 	private String carro = "C";
 	private int valorHoraCarro = 1000;
@@ -26,11 +28,9 @@ public class VigilanteParqueadero {
 	@Autowired
 	private RegistroVehiculoServiceImpl registroVehiculoServiceImpl;
 	
-	private IRegistroVehiculoRepository repositoryRegistroVehiculo;
-		
-	//public VigilanteParqueadero(IRegistroVehiculoRepository repositoryRegistroVehiculo) {
-	//	this.repositoryRegistroVehiculo = repositoryRegistroVehiculo;
-	//}
+	public VigilanteParqueadero(RegistroVehiculoServiceImpl registroVehiculoServiceImpl) {
+		this.registroVehiculoServiceImpl = registroVehiculoServiceImpl;
+	}
 
 	// Metodooooo
 	public void fntGuardarRegistroVigilante(RegistroVigilanteEntity registroVigilanteEntity) {
@@ -48,8 +48,15 @@ public class VigilanteParqueadero {
 
 	}
 
-	public void fntValidarCapacidad() {
-
+	public void fntValidarCapacidad(String tipoVehiculo ) {
+		
+		long cantidadVehiculo = registroVehiculoServiceImpl.cantidadVehiculo(tipoVehiculo);
+		
+		if (tipoVehiculo.equals(moto) && cantidadVehiculo>=totalCapacidadMoto){
+			throw new ExceptionVehiculoRegistro(CANTIDAD_MOTO);		
+		} else if (tipoVehiculo.equals(carro) && cantidadVehiculo>=totalCapacidadCarro) {
+			throw new ExceptionVehiculoRegistro(CANTIDAD_CARRO);	
+		}
 	}
 
 	public void fntValidarLetraPlaca(String placa) {

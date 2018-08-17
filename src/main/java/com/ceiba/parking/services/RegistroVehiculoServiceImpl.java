@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ceiba.parking.domain.VigilanteParqueadero;
 import com.ceiba.parking.entity.RegistroVigilanteEntity;
 import com.ceiba.parking.repository.IRegistroVehiculoRepository;
 import com.ceiba.parking.serviceinterfaz.IRegistroVehiculoServicesInterfaz;
@@ -36,12 +35,6 @@ public class RegistroVehiculoServiceImpl implements IRegistroVehiculoServicesInt
 
 	@Override
 	@Transactional
-	public RegistroVigilanteEntity guardarRegistroVigilanteEntity(RegistroVigilanteEntity registroVigilanteEntity) {			
-		return registroVehiculoRepository.save(registroVigilanteEntity);
-	}
-
-	@Override
-	@Transactional
 	public void fntEliminaRegistroVigilanteEntity(Long id) {
 		registroVehiculoRepository.deleteById(id);
 	}
@@ -50,6 +43,18 @@ public class RegistroVehiculoServiceImpl implements IRegistroVehiculoServicesInt
 	@Transactional
 	public RegistroVigilanteEntity buscarPorPlaca(String placa) {
 		return registroVehiculoRepository.findByPlaca(placa);
+	}
+
+	@Override
+	@Transactional
+	public long cantidadVehiculo(String tipo) {
+		return registroVehiculoRepository.countByTipo(tipo);
+	}
+
+	@Override
+	@Transactional
+	public RegistroVigilanteEntity guardarRegistroNuevo(RegistroVigilanteEntity registro) {
+		return registroVehiculoRepository.save(registro);
 	}
 
 }

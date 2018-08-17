@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,15 +30,14 @@ public class RegistroVehiculoRestController {
 	}
 	
 	@GetMapping("/listarid/{id}")
-	public RegistroVigilanteEntity show(@PathVariable Long id) {
+	public RegistroVigilanteEntity listarbyid(@PathVariable Long id) {
 		return iRegistroVehiculoServicesInterfaz.buscarPorId(id);
 	}
 	
-	//Guardar Registro del Vigilante
-	@PostMapping("/guardaregistro/")
+	@PostMapping("nuevoregistro")
 	@ResponseStatus(HttpStatus.CREATED)
-	public RegistroVigilanteEntity create(@RequestBody RegistroVigilanteEntity registroVigilanteEntity) {
-		return iRegistroVehiculoServicesInterfaz.guardarRegistroVigilanteEntity(registroVigilanteEntity);		
+	public RegistroVigilanteEntity nuevoRegistro(@RequestBody RegistroVigilanteEntity registro) {
+		return iRegistroVehiculoServicesInterfaz.guardarRegistroNuevo(registro);
 	}
 	
 	@PutMapping("/actualizaregistro/{id}")
@@ -55,7 +53,7 @@ public class RegistroVehiculoRestController {
 		registroVehiculoActual.setTipoRegistro(registroVigilanteEntity.getTipoRegistro());
 		registroVehiculoActual.setValor(registroVigilanteEntity.getValor());
 		
-		return iRegistroVehiculoServicesInterfaz.guardarRegistroVigilanteEntity(registroVehiculoActual);
+		return iRegistroVehiculoServicesInterfaz.guardarRegistroNuevo(registroVehiculoActual);
 	}
 	
 	@DeleteMapping("/eliminaregistro/{id}")
@@ -65,7 +63,12 @@ public class RegistroVehiculoRestController {
 	}
 	
 	@GetMapping(value = "/buscarplaca/{placa}", produces= {"application/json"})
-	public @ResponseBody RegistroVigilanteEntity show(@PathVariable String placa) {
+	public RegistroVigilanteEntity buscarByplaca(@PathVariable String placa) {
 		return iRegistroVehiculoServicesInterfaz.buscarPorPlaca(placa);
+	}
+	
+	@GetMapping("/cantidadvehiculo/{tipo}")
+	public long cantidaVehiculo(@PathVariable String tipo) {
+		return iRegistroVehiculoServicesInterfaz.cantidadVehiculo(tipo);
 	}
 }

@@ -11,6 +11,8 @@ public class Registro {
 	private Date fechaSalida;
 	private int valor;
 	private String tipoRegistro;
+	
+	
 
 	// Method Setters and Getters
 
