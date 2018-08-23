@@ -15,8 +15,10 @@ public interface IRegistroService {
 		
 		public RegistroEntity save(RegistroEntity registro);
 		
-		public void fntDeleteRegistroVigilanteEntity(Long id);
+		public void fntDeleteRegistro(Long id);
 
 		long contarCupos(String tipo, String tipoRegistro);
+		
+		
 
 }

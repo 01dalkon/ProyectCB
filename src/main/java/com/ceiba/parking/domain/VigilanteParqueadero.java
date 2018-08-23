@@ -2,8 +2,7 @@ package com.ceiba.parking.domain;
 
 import java.time.DayOfWeek;
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+
 
 import org.springframework.stereotype.Service;
 
@@ -30,9 +29,12 @@ public class VigilanteParqueadero {
 		this.registroImpl = registroImpl;
 	}
 	
-	
+	public void fntEntraVehiculo(Registro registro) {
+		
+	}
 
 	public void fntCalcularCobro(Registro registro, double valorDia, double valorHora, double valorAdicional) {
+		
 		double valorCobrar = valorAdicional;
 		double horas = Duration.between(registro.getFechaEntrada(), registro.getFechaSalida()).toHours();
 

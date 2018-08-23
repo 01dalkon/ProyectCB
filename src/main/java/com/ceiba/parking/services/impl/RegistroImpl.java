@@ -44,7 +44,7 @@ public class RegistroImpl implements IRegistroService{
 
 	@Override
 	@Transactional
-	public void fntDeleteRegistroVigilanteEntity(Long id) {
+	public void fntDeleteRegistro(Long id) {
 		registroRepository.deleteById(id);
 	}
 

@@ -76,6 +76,6 @@ public class RegistroRestController {
 	@DeleteMapping("/eliminaregistro/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public void registroVigilanteEntity(@PathVariable Long id) {
-		registroService.fntDeleteRegistroVigilanteEntity(id);
+		registroService.fntDeleteRegistro(id);
 	}
 }
