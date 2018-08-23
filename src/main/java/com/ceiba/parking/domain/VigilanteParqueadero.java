@@ -6,6 +6,7 @@ import java.time.Duration;
 
 import org.springframework.stereotype.Service;
 
+import com.ceiba.parking.entity.RegistroEntity;
 import com.ceiba.parking.services.impl.RegistroImpl;
 
 @Service
@@ -29,8 +30,11 @@ public class VigilanteParqueadero {
 		this.registroImpl = registroImpl;
 	}
 	
+	
+	// Funciones 
+	
 	public void fntEntraVehiculo(Registro registro) {
-		
+		registroImpl.registrarEntrada(registro);
 	}
 
 	public void fntCalcularCobro(Registro registro, double valorDia, double valorHora, double valorAdicional) {

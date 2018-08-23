@@ -7,7 +7,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ceiba.parking.domain.Registro;
 import com.ceiba.parking.entity.RegistroEntity;
+import com.ceiba.parking.registrodto.DTO;
 import com.ceiba.parking.repository.IRegistroRepository;
 import com.ceiba.parking.services.IRegistroService;
 
@@ -51,6 +53,13 @@ public class RegistroImpl implements IRegistroService{
 	@Override
 	public long contarCupos(String tipo, String tipoRegistro) {
 		return registroRepository.countByTipoAndTipoRegistro(tipo, tipoRegistro);
+	}
+
+	@Override
+	public void registrarEntrada(Registro registro) {
+		RegistroEntity registroEntidad = DTO.convertirAEntidad(registro);
+		registroEntidad.setTipoRegistro("ENTRADA");
+		registroRepository.save(registroEntidad);
 	}
 	
 }

@@ -1,7 +1,6 @@
 package com.ceiba.parking.domain;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Registro {
 
@@ -19,6 +18,29 @@ public class Registro {
 	// Method Setters and Getters
 	
 	
+	public Registro(String placa, String tipo, String tipoRegistro, LocalDateTime fechaEntrada, LocalDateTime fechaSalida, double valor) {
+		super();
+		this.placa = placa;
+		this.tipo = tipo;
+		this.tipoRegistro = tipoRegistro;
+		this.fechaEntrada = fechaEntrada;
+		this.fechaSalida = fechaSalida;
+		this.valor = valor;
+		
+	}
+
+	public Registro(String placa, String tipo, String tipoRegistro, int cilindraje, LocalDateTime fechaEntrada, LocalDateTime fechaSalida,
+			double valor) {
+		super();
+		this.placa = placa;
+		this.tipo = tipo;
+		this.tipoRegistro = tipoRegistro;
+		this.cilindraje = cilindraje;
+		this.fechaEntrada = fechaEntrada;
+		this.fechaSalida = fechaSalida;
+		this.valor = valor;
+	}
+
 	public String getPlaca() {
 		return placa;
 	}

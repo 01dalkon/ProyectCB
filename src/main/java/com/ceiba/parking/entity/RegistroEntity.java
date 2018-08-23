@@ -1,17 +1,18 @@
 package com.ceiba.parking.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
+
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 
 @Entity
 @Table(name = "registros")
@@ -36,18 +37,13 @@ public class RegistroEntity implements Serializable {
 	private double valor;
 
 	@Column(name = "fecha_entrada")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date fechaEntrada;
+	private LocalDateTime fechaEntrada;
 
 	@Column(name = "fecha_salida")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date fechaSalida;
+	private LocalDateTime fechaSalida;
 
-	@PrePersist
-	public void prePersist() {
-		fechaEntrada = new Date();
-	}
-
+	
+	
 	// Method Setters y getters
 	
 
@@ -107,20 +103,22 @@ public class RegistroEntity implements Serializable {
 		this.espacio = espacio;
 	}
 
-	public Date getFechaEntrada() {
+	public LocalDateTime getFechaEntrada() {
 		return fechaEntrada;
 	}
 
-	public void setFechaEntrada(Date fechaEntrada) {
+	public void setFechaEntrada(LocalDateTime fechaEntrada) {
 		this.fechaEntrada = fechaEntrada;
 	}
 
-	public Date getFechaSalida() {
+	public LocalDateTime getFechaSalida() {
 		return fechaSalida;
 	}
 
-	public void setFechaSalida(Date fechaSalida) {
+	public void setFechaSalida(LocalDateTime fechaSalida) {
 		this.fechaSalida = fechaSalida;
 	}
+	
+	
 
 }

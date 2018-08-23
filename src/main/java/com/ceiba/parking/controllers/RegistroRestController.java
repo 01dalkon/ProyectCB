@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ceiba.parking.domain.Registro;
 import com.ceiba.parking.domain.VigilanteParqueadero;
 import com.ceiba.parking.entity.RegistroEntity;
 import com.ceiba.parking.services.IRegistroService;
@@ -47,8 +48,8 @@ public class RegistroRestController {
 	
 	@PostMapping("/ingresovehiculo")
 	@ResponseStatus(HttpStatus.CREATED)
-	public RegistroEntity ingresaRegistro(@RequestBody RegistroEntity registro) {
-		return registroService.save(registro);		
+	public void ingresaRegistro(@RequestBody Registro registro) {
+		vigilante.fntEntraVehiculo(registro);
 	}
 	
 	@PutMapping("/salidavehiculo/{placa}")
