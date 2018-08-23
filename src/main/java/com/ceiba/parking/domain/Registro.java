@@ -1,19 +1,34 @@
 package com.ceiba.parking.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Registro {
 
 	private String placa;
 	private String tipo;
+	private String tipoRegistro;
 	private int cilindraje;
-	private Date fechaEntrada;
-	private Date fechaSalida;
+	private LocalDateTime fechaEntrada;
+	private LocalDateTime fechaSalida;
+	private Double valor;
+	
+	public Registro() {
+	}
 
 	// Method Setters and Getters
-
+	
+	
 	public String getPlaca() {
 		return placa;
+	}
+
+	public String getTipoRegistro() {
+		return tipoRegistro;
+	}
+
+	public void setTipoRegistro(String tipoRegistro) {
+		this.tipoRegistro = tipoRegistro;
 	}
 
 	public void setPlaca(String placa) {
@@ -34,22 +49,30 @@ public class Registro {
 
 	public void setCilindraje(int cilindraje) {
 		this.cilindraje = cilindraje;
-	}
+	}	
 
-	public Date getFechaEntrada() {
+	public LocalDateTime getFechaEntrada() {
 		return fechaEntrada;
 	}
 
-	public void setFechaEntrada(Date fechaEntrada) {
+	public void setFechaEntrada(LocalDateTime fechaEntrada) {
 		this.fechaEntrada = fechaEntrada;
 	}
 
-	public Date getFechaSalida() {
+	public LocalDateTime getFechaSalida() {
 		return fechaSalida;
 	}
 
-	public void setFechaSalida(Date fechaSalida) {
+	public void setFechaSalida(LocalDateTime fechaSalida) {
 		this.fechaSalida = fechaSalida;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 
 }

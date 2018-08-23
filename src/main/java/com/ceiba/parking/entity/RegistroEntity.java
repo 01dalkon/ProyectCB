@@ -1,4 +1,4 @@
-package com.ceiba.parking.repository.entity;
+package com.ceiba.parking.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "registros")
-public class RegistroVigilanteEntity implements Serializable {
+public class RegistroEntity implements Serializable {
 
 	/**
 	 * 
@@ -28,8 +28,12 @@ public class RegistroVigilanteEntity implements Serializable {
 
 	private String placa;
 	private String tipo;
+	
+	@Column(name = "tipo_registro")
+	private String tipoRegistro;
 	private int cilindraje;
 	private int espacio;
+	private double valor;
 
 	@Column(name = "fecha_entrada")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -39,17 +43,32 @@ public class RegistroVigilanteEntity implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaSalida;
 
-	private Date createAt;
-
 	@PrePersist
 	public void prePersist() {
-		createAt = new Date();
+		fechaEntrada = new Date();
 	}
 
 	// Method Setters y getters
+	
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getTipoRegistro() {
+		return tipoRegistro;
+	}
+
+	public void setTipoRegistro(String tipoRegistro) {
+		this.tipoRegistro = tipoRegistro;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
 	public void setId(Long id) {
