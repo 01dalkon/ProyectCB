@@ -4,6 +4,8 @@ import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.ceiba.parking.entity.RegistroEntity;
@@ -36,10 +38,11 @@ public class VigilanteParqueadero {
 		this.registroImpl = registroImpl;
 	}
 
-	// Funciones
 
 	public void fntEntraVehiculo(Registro registro) {
-
+		
+		fntBuscarVehiculoExiste(registro); 
+		
 		fntValidacionCupos(registro);
 
 		fntValidaPlaca(registro);
@@ -106,8 +109,8 @@ public class VigilanteParqueadero {
 		}
 	}
 
-	public void fntBuscarVehiculo(Registro registro) {
-		if (registroImpl.findByPlaca(registro.getPlaca()) != null) {
+	public void fntBuscarVehiculoExiste(Registro registro) {
+		if (registroImpl.registroExiste(registro.getPlaca(),registro.getTipoRegistro())) {
 			throw new Excepcion(VEHICULO_EXISTE);
 		}
 	}

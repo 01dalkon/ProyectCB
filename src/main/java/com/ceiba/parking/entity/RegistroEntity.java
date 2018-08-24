@@ -44,7 +44,7 @@ public class RegistroEntity implements Serializable {
 	private int espacio;
 	private double valor;
 
-	@Column(name = "fecha_entrada",columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "fecha_entrada")
 	private LocalDateTime fechaEntrada;
 
 	@Column(name = "fecha_salida")

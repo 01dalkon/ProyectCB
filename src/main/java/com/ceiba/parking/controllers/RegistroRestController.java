@@ -43,10 +43,10 @@ public class RegistroRestController {
 	}
 
 	@PostMapping("/ingresovehiculo")
-	@ResponseStatus(HttpStatus.CREATED)
+	@ResponseStatus
 	public ResponseEntity<Void> ingresaRegistro(@RequestBody Registro registro) {
 		vigilante.fntEntraVehiculo(registro);
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 
 	@PutMapping("/salidavehiculo/{placa}")

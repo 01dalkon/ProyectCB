@@ -26,4 +26,6 @@ public interface IRegistroService {
 		
 		public Registro buscarPorPlaca(String placa);
 
+		boolean registroExiste(String placa, String tipoRegistro);
+
 }

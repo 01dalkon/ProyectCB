@@ -54,7 +54,6 @@ public class RegistroImpl implements IRegistroService{
 	public void fntDeleteRegistro(Long id) {
 		registroRepository.deleteById(id);
 	}
-	
 
 	@Override
 	public long contarCupos(String tipo, String tipoRegistro) {
@@ -84,5 +83,10 @@ public class RegistroImpl implements IRegistroService{
 		registroRepository.save(registroEntidad);
 		
 	}
-	
+
+	@Override
+	public boolean registroExiste(String placa, String tipoRegistro) {
+		return registroRepository.findByPlacaAndTipoRegistro(placa, tipoRegistro);
+	}
+
 }
