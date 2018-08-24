@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,63 +21,39 @@ import com.ceiba.parking.domain.VigilanteParqueadero;
 import com.ceiba.parking.entity.RegistroEntity;
 import com.ceiba.parking.services.IRegistroService;
 
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = { "*" })
 @RestController
 @RequestMapping("/api")
 public class RegistroRestController {
 
 	@Autowired
 	private IRegistroService registroService;
-	
+
 	@Autowired
 	VigilanteParqueadero vigilante;
-	
+
 	@GetMapping(value = "/listavehiculo")
-	public List<RegistroEntity> index(){
+	public List<RegistroEntity> index() {
 		return registroService.findAll();
 	}
-	
-	@GetMapping("/buscarid/{id}")
+
+	@GetMapping("/listavehiculo/{id}")
 	public RegistroEntity show(@PathVariable Long id) {
 		return registroService.findById(id);
 	}
-	
-	@GetMapping("/buscarplaca/{placa}")
-	public RegistroEntity buscarPorPlaca(@PathVariable String placa) {
-		return registroService.findByPlaca(placa);
-	}
-	
+
 	@PostMapping("/ingresovehiculo")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void ingresaRegistro(@RequestBody Registro registro) {
+	public ResponseEntity<Void> ingresaRegistro(@RequestBody Registro registro) {
 		vigilante.fntEntraVehiculo(registro);
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-	
+
 	@PutMapping("/salidavehiculo/{placa}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public RegistroEntity salidaVehiculo(@PathVariable String placa) {
-		RegistroEntity registroVehiculoActual = registroService.findByPlaca(placa);
-		return registroService.save(registroVehiculoActual);		
+	public ResponseEntity<Void> salidaRegistro(@RequestBody Registro registro) {
+		vigilante.fntSalidaVehiculo(registro.getPlaca());
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-	
-	@PutMapping("/actualizaregistro/{id}")
-	public RegistroEntity actualizaRegistro(@RequestBody RegistroEntity registroVigilanteEntity,@PathVariable Long id ) {
-		
-		RegistroEntity registroVehiculoActual = registroService.findById(id);
-		
-		registroVehiculoActual.setPlaca(registroVigilanteEntity.getPlaca());
-		registroVehiculoActual.setTipo(registroVigilanteEntity.getTipo());
-		registroVehiculoActual.setCilindraje(registroVigilanteEntity.getCilindraje());
-		registroVehiculoActual.setEspacio(registroVigilanteEntity.getEspacio());	
-		registroVehiculoActual.setFechaEntrada(registroVigilanteEntity.getFechaEntrada());
-		registroVehiculoActual.setFechaSalida(registroVigilanteEntity.getFechaSalida());
-		
-		return registroService.save(registroVehiculoActual);
-	}
-	
-	@DeleteMapping("/eliminaregistro/{id}")
-	@ResponseStatus(HttpStatus.OK)
-	public void registroVigilanteEntity(@PathVariable Long id) {
-		registroService.fntDeleteRegistro(id);
-	}
+
 }

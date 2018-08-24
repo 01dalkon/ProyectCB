@@ -10,13 +10,10 @@ public class Registro {
 	private int cilindraje;
 	private LocalDateTime fechaEntrada;
 	private LocalDateTime fechaSalida;
-	private Double valor;
+	private double valor;
 	
 	public Registro() {
 	}
-
-	// Method Setters and Getters
-	
 	
 	public Registro(String placa, String tipo, String tipoRegistro, LocalDateTime fechaEntrada, LocalDateTime fechaSalida, double valor) {
 		super();
@@ -41,6 +38,8 @@ public class Registro {
 		this.valor = valor;
 	}
 
+	// Method Setters and Getters
+	
 	public String getPlaca() {
 		return placa;
 	}
@@ -89,12 +88,12 @@ public class Registro {
 		this.fechaSalida = fechaSalida;
 	}
 
-	public Double getValor() {
+	public double getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
-		this.valor = valor;
+	public double setValor(double valor) {
+		return this.valor = valor;
 	}
 
 }

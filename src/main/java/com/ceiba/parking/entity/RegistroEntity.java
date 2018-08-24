@@ -1,17 +1,25 @@
 package com.ceiba.parking.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.PostPersist;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.datetime.joda.LocalDateTimeParser;
 
 
 @Entity
@@ -36,14 +44,16 @@ public class RegistroEntity implements Serializable {
 	private int espacio;
 	private double valor;
 
-	@Column(name = "fecha_entrada")
+	@Column(name = "fecha_entrada",columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime fechaEntrada;
 
 	@Column(name = "fecha_salida")
 	private LocalDateTime fechaSalida;
-
 	
-	
+	@PrePersist
+	public void prePersist() {
+		fechaEntrada = LocalDateTime.now();
+	}
 	// Method Setters y getters
 	
 

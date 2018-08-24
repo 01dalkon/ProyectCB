@@ -21,5 +21,9 @@ public interface IRegistroService {
 		long contarCupos(String tipo, String tipoRegistro);
 		
 		public void registrarEntrada (Registro registro);
+		
+		public void registrarSalida (Registro registro);
+		
+		public Registro buscarPorPlaca(String placa);
 
 }

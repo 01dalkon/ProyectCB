@@ -2,7 +2,7 @@ package com.ceiba.parking.domain;
 
 import java.time.DayOfWeek;
 import java.time.Duration;
-
+import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Service;
 
@@ -21,24 +21,49 @@ public class VigilanteParqueadero {
 	private String MENSAJE_CUPOS_MOTO = "Total de cupos agotados para moto";
 	private String VALIDA_PLACA = "La placa con letra A no es permitida este día";
 	private String VEHICULO_EXISTE = "El vehiculo esta registrado";
+	
+	private double valorDiaCarro = 8000;
+	private double valorHoraCarro = 1000;
+	
+	private double valorDiaMoto = 4000;
+	private double valorHoraMoto = 500;
+	
+	private double valorAdicional = 2000;
 
-	
-	
 	private RegistroImpl registroImpl;
 
 	public VigilanteParqueadero(RegistroImpl registroImpl) {
 		this.registroImpl = registroImpl;
 	}
-	
-	
-	// Funciones 
-	
+
+	// Funciones
+
 	public void fntEntraVehiculo(Registro registro) {
+
+		fntValidacionCupos(registro);
+
+		fntValidaPlaca(registro);
+
 		registroImpl.registrarEntrada(registro);
 	}
-
-	public void fntCalcularCobro(Registro registro, double valorDia, double valorHora, double valorAdicional) {
+	
+	public void fntSalidaVehiculo(String placa) {
 		
+		Registro registro = registroImpl.buscarPorPlaca(placa);
+		registro.setFechaSalida(LocalDateTime.now());
+		
+		if (registro.getTipo().equals(TIPO_CARRO)) {
+			fntCalcularCobro(registro, valorDiaCarro, valorHoraCarro, 0);
+		} else {
+			fntCalcularCobro(registro, valorDiaMoto, valorHoraMoto, valorAdicional);
+		}
+		
+		registroImpl.registrarSalida(registro);
+
+	}
+	
+	public void fntCalcularCobro(Registro registro, double valorDia, double valorHora, double valorAdicional) {
+
 		double valorCobrar = valorAdicional;
 		double horas = Duration.between(registro.getFechaEntrada(), registro.getFechaSalida()).toHours();
 
@@ -60,7 +85,7 @@ public class VigilanteParqueadero {
 	}
 
 	public void fntValidacionCupos(Registro registro) {
-		long cantidadVehiculos = registroImpl.contarCupos(registro.getTipo(), registro.getTipoRegistro());
+		long cantidadVehiculos = registroImpl.contarCupos(registro.getTipo(), registro.getTipo());
 
 		if (registro.getTipo().equals(TIPO_CARRO) && cantidadVehiculos >= TOTAL_CARROS) {
 			throw new Excepcion(MENSAJE_CUPOS_CARRO);
@@ -73,11 +98,11 @@ public class VigilanteParqueadero {
 
 	public void fntValidaPlaca(Registro registro) {
 
-		if (registro.getPlaca().toUpperCase().startsWith("A")
-				&& registro.getFechaEntrada().getDayOfWeek() == DayOfWeek.SUNDAY
-				|| registro.getFechaEntrada().getDayOfWeek() == DayOfWeek.MONDAY) {
-			throw new Excepcion(VALIDA_PLACA);
-
+		if (registro.getPlaca().toUpperCase().startsWith("A")) {
+			if (registro.getFechaEntrada().getDayOfWeek() != DayOfWeek.SUNDAY
+					|| registro.getFechaEntrada().getDayOfWeek() != DayOfWeek.MONDAY) {
+				throw new Excepcion(VALIDA_PLACA);
+			}
 		}
 	}
 

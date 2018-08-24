@@ -5,10 +5,12 @@ import com.ceiba.parking.entity.RegistroEntity;
 
 public class DTO {
 
+	/*
 	private DTO() {
 	}
+	*/
 
-	public static Registro convertirADominio(RegistroEntity registroEntity) {
+	public Registro convertirADominio(RegistroEntity registroEntity) {
 		Registro registro = null;
 		
 			if (registroEntity.getTipo().equals("CARRO")) {
@@ -25,7 +27,7 @@ public class DTO {
 		return registro;
 	}
 
-	public static RegistroEntity convertirAEntidad(Registro registro) {
+	public RegistroEntity convertirAEntidad(Registro registro) {
 		RegistroEntity registroEntity = new RegistroEntity();
 		registroEntity.setPlaca(registro.getPlaca());
 		registroEntity.setTipo(registro.getTipo());
