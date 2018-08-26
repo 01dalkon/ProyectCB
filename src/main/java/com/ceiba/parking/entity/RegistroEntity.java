@@ -40,6 +40,7 @@ public class RegistroEntity implements Serializable {
 	
 	@Column(name = "tipo_registro")
 	private String tipoRegistro;
+	
 	private int cilindraje;
 	private int espacio;
 	private double valor;

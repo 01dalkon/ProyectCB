@@ -65,6 +65,12 @@ public class RegistroImpl implements IRegistroService{
 		RegistroEntity registroEntidad = registroRepository.findByplaca(placa);
 		return dto.convertirADominio(registroEntidad);
 	}
+	
+	@Override
+	public Registro buscarPorPlacaTipoRegistro(String placa, String tipoRegistro) {
+		RegistroEntity registroEntidad = registroRepository.findByPlacaAndTipoRegistro(placa, tipoRegistro);
+		return dto.convertirADominio(registroEntidad);
+	}
 
 	@Override
 	public void registrarEntrada(Registro registro) {
@@ -75,8 +81,7 @@ public class RegistroImpl implements IRegistroService{
 
 	@Override
 	public void registrarSalida(Registro registro) {
-		
-		RegistroEntity registroEntidad = registroRepository.findByplaca(registro.getPlaca());
+		RegistroEntity registroEntidad = registroRepository.findByPlacaAndTipoRegistro(registro.getPlaca(), registro.getTipoRegistro());
 		registroEntidad.setTipoRegistro("SALIDA");
 		registroEntidad.setFechaSalida(registro.getFechaSalida());
 		registroEntidad.setValor(registro.getValor());
@@ -85,8 +90,9 @@ public class RegistroImpl implements IRegistroService{
 	}
 
 	@Override
-	public boolean registroExiste(String placa, String tipoRegistro) {
+	public RegistroEntity registroExiste(String placa, String tipoRegistro) {
 		return registroRepository.findByPlacaAndTipoRegistro(placa, tipoRegistro);
 	}
+
 
 }

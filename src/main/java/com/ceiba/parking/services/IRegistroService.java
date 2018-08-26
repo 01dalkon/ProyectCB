@@ -25,7 +25,9 @@ public interface IRegistroService {
 		public void registrarSalida (Registro registro);
 		
 		public Registro buscarPorPlaca(String placa);
+		
+		public Registro buscarPorPlacaTipoRegistro(String placa, String tipoRegistro);
 
-		boolean registroExiste(String placa, String tipoRegistro);
+		RegistroEntity registroExiste(String placa, String tipoRegistro);
 
 }
