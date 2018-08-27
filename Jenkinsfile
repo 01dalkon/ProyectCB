@@ -35,6 +35,7 @@ pipeline {
             steps {
                 echo "------------>Unit Tests<------------"
                 sh 'gradle --b ./build.gradle cleanTest test'
+                junit '**/jacoco/test-results/*.xml'
             }
         }
         stage('Integration Tests') {
