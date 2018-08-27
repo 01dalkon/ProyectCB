@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.parking.ceibaparking.unitarias.VigilanteParqueaderoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-08-27T22:02:33" hostname="JONATHAN-MUNOZ" time="1.346">
+<testsuite name="com.ceiba.parking.ceibaparking.unitarias.VigilanteParqueaderoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-08-27T22:08:58" hostname="JONATHAN-MUNOZ" time="1.185">
   <properties/>
-  <testcase name="testFntCalcularCobro" classname="com.ceiba.parking.ceibaparking.unitarias.VigilanteParqueaderoTest" time="0.023"/>
-  <testcase name="testFntValidacionCuposMoto" classname="com.ceiba.parking.ceibaparking.unitarias.VigilanteParqueaderoTest" time="1.317"/>
-  <testcase name="testFntCrearRegistroTest" classname="com.ceiba.parking.ceibaparking.unitarias.VigilanteParqueaderoTest" time="0.001"/>
-  <testcase name="testFntCalcularCobroMayor9Horas" classname="com.ceiba.parking.ceibaparking.unitarias.VigilanteParqueaderoTest" time="0.001"/>
+  <testcase name="testFntCalcularCobro" classname="com.ceiba.parking.ceibaparking.unitarias.VigilanteParqueaderoTest" time="0.003"/>
+  <testcase name="testFntValidacionCuposMoto" classname="com.ceiba.parking.ceibaparking.unitarias.VigilanteParqueaderoTest" time="1.174"/>
+  <testcase name="testFntCrearRegistroTest" classname="com.ceiba.parking.ceibaparking.unitarias.VigilanteParqueaderoTest" time="0.0"/>
+  <testcase name="testFntCalcularCobroMayor9Horas" classname="com.ceiba.parking.ceibaparking.unitarias.VigilanteParqueaderoTest" time="0.0"/>
   <testcase name="testFntValidacionCuposCarro" classname="com.ceiba.parking.ceibaparking.unitarias.VigilanteParqueaderoTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
