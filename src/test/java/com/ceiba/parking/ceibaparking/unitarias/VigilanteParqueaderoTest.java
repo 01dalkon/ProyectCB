@@ -99,22 +99,4 @@ public class VigilanteParqueaderoTest {
 		}
 	}
 	
-
-	@Test
-	public void testIngresarNuevaMotoPlacaA() {
-		
-		Registro registro = new RegistroTestDataBuilder().setPlaca("ABA-123").setTipo("MOTO").setTipoRegistro("ENTRADA").setFechaEntrada(LocalDateTime.parse("2018-08-27T07:00:00")).build();
-
-		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero();
-
-		vigilanteParqueadero.fntEntraVehiculo(registro);
-		
-		try {
-			vigilanteParqueadero.fntValidaPlaca(registro);
-		} catch (Exception e) {
-			Assert.assertEquals(vigilanteParqueadero.VALIDA_PLACA, e.getMessage());
-		}
-	}
-
-
 }
