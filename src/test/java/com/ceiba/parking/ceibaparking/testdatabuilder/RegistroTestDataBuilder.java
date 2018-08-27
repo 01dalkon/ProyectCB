@@ -7,7 +7,7 @@ import com.ceiba.parking.domain.Registro;
 public class RegistroTestDataBuilder {
 	
 	//private static final String String = null;
-	private static final String PLACA = "HIS-63E";
+	private static final String PLACA = "LFJ-63B";
 	private static final String TIPO = "MOTO";
 	private  static final String TIPO_REGISTRO = "ENTRADA";
 	private static final int CILINDRAJE = 200;
@@ -16,13 +16,13 @@ public class RegistroTestDataBuilder {
 	private static final double VALOR = 2000;
 	
 	
-	private String placa;
-	private String tipo;
-	private String tipoRegistro;
-	private int cilindraje;
-	private LocalDateTime fechaEntrada;
-	private LocalDateTime fechaSalida;
-	private double valor;
+	 String placa;
+	 String tipo;
+	 String tipoRegistro;
+	 int cilindraje;
+	 LocalDateTime fechaEntrada;
+	 LocalDateTime fechaSalida;
+	 double valor;
 	
 	public RegistroTestDataBuilder() {
 		this.placa= PLACA;
@@ -32,54 +32,41 @@ public class RegistroTestDataBuilder {
 		this.fechaEntrada = FECHA_ENTRADA;
 		this.valor = VALOR;
 	}
-	
-	public RegistroTestDataBuilder(String tipo) {
-		this.placa= PLACA;
-		this.tipo = TIPO;
-		this.fechaEntrada = FECHA_ENTRADA;
-	}
-	
-	public String getPlaca() {
-		return placa;
-	}
-	public void setPlaca(String placa) {
+		
+
+	public RegistroTestDataBuilder setPlaca(String placa) {
 		this.placa = placa;
+		return this;
 	}
-	public String getTipo() {
-		return tipo;
-	}
-	public void setTipo(String tipo) {
+
+	public RegistroTestDataBuilder setTipo(String tipo) {
 		this.tipo = tipo;
+		return this;
 	}
-	public String getTipoRegistro() {
-		return tipoRegistro;
-	}
-	public void setTipoRegistro(String tipoRegistro) {
+
+	public RegistroTestDataBuilder setTipoRegistro(String tipoRegistro) {
 		this.tipoRegistro = tipoRegistro;
+		return this;
 	}
-	public int getCilindraje() {
-		return cilindraje;
-	}
-	public void setCilindraje(int cilindraje) {
+
+	public RegistroTestDataBuilder setCilindraje(int cilindraje) {
 		this.cilindraje = cilindraje;
+		return this;
 	}
-	public LocalDateTime getFechaEntrada() {
-		return fechaEntrada;
-	}
-	public void setFechaEntrada(LocalDateTime fechaEntrada) {
+
+	public RegistroTestDataBuilder setFechaEntrada(LocalDateTime fechaEntrada) {
 		this.fechaEntrada = fechaEntrada;
+		return this;
 	}
-	public LocalDateTime getFechaSalida() {
-		return fechaSalida;
-	}
-	public void setFechaSalida(LocalDateTime fechaSalida) {
+
+	public RegistroTestDataBuilder setFechaSalida(LocalDateTime fechaSalida) {
 		this.fechaSalida = fechaSalida;
+		return this;
 	}
-	public double getValor() {
-		return valor;
-	}
-	public void setValor(double valor) {
+
+	public RegistroTestDataBuilder setValor(double valor) {
 		this.valor = valor;
+		return this;
 	}
 	
 	public Registro build() {

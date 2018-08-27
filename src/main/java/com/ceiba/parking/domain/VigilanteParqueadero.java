@@ -16,10 +16,10 @@ public class VigilanteParqueadero {
 	private int TOTAL_CARROS = 20;
 	private int TOTAL_MOTOS = 10;
 
-	private String MENSAJE_CUPOS_CARRO = "Total de cupos agotados para carro";
-	private String MENSAJE_CUPOS_MOTO = "Total de cupos agotados para moto";
-	private String VALIDA_PLACA = "La placa con letra A no es permitida este día";
-	private String VEHICULO_EXISTE = "El vehiculo esta registrado";
+	public String MENSAJE_CUPOS_CARRO = "Total de cupos agotados para carro";
+	public String MENSAJE_CUPOS_MOTO = "Total de cupos agotados para moto";
+	public String VALIDA_PLACA = "La placa con letra A no es permitida este día";
+	public String VEHICULO_EXISTE = "El vehiculo esta registrado";
 
 	private double valorDiaCarro = 8000;
 	private double valorHoraCarro = 1000;
@@ -28,9 +28,15 @@ public class VigilanteParqueadero {
 	private double valorHoraMoto = 500;
 
 	private double valorAdicional = 2000;
+	
+	private int totalHorasDia = 24;
+	private int totalHorasCobroDia = 9;
 
 	private RegistroImpl registroImpl;
-
+	
+	public VigilanteParqueadero() {
+		
+	}
 	public VigilanteParqueadero(RegistroImpl registroImpl) {
 		this.registroImpl = registroImpl;
 	}
@@ -70,11 +76,11 @@ public class VigilanteParqueadero {
 			horas++;
 		}
 
-		double dias = Math.round(horas / 24);
+		double dias = Math.round(horas / totalHorasDia);
 		int diasCompletos = (int) dias;
-		int horasRestantes = (int) (horas - (diasCompletos * 24));
+		int horasRestantes = (int) (horas - (diasCompletos * totalHorasDia));
 
-		if (horasRestantes >= 9) {
+		if (horasRestantes >= totalHorasCobroDia) {
 			diasCompletos++;
 			horasRestantes = 0;
 		}
@@ -85,7 +91,7 @@ public class VigilanteParqueadero {
 	}
 
 	public void fntValidacionCupos(Registro registro) {
-		long cantidadVehiculos = registroImpl.contarCupos(registro.getTipo(), registro.getTipo());
+		long cantidadVehiculos = registroImpl.contarCupos(registro.getTipo(), registro.getTipoRegistro());
 
 		if (registro.getTipo().equals(TIPO_CARRO) && cantidadVehiculos >= TOTAL_CARROS) {
 			throw new Excepcion(MENSAJE_CUPOS_CARRO);
