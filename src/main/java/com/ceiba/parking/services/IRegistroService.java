@@ -11,9 +11,7 @@ public interface IRegistroService {
 		public List<RegistroEntity> findAll();
 		
 		public RegistroEntity findById(Long id);
-		
-		public RegistroEntity findByPlaca(String placa);
-		
+			
 		public RegistroEntity save(RegistroEntity registro);
 		
 		public void fntDeleteRegistro(Long id);
@@ -28,6 +26,6 @@ public interface IRegistroService {
 		
 		public Registro buscarPorPlacaTipoRegistro(String placa, String tipoRegistro);
 
-		RegistroEntity registroExiste(String placa, String tipoRegistro);
+		public RegistroEntity registroExiste(String placa, String tipoRegistro);
 
 }

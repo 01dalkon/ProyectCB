@@ -1,14 +1,9 @@
-package com.ceiba.parking.registrodto;
+package com.ceiba.parking.dto;
 
 import com.ceiba.parking.domain.Registro;
 import com.ceiba.parking.entity.RegistroEntity;
 
 public class DTO {
-
-	/*
-	private DTO() {
-	}
-	*/
 
 	public Registro convertirADominio(RegistroEntity registroEntity) {
 		Registro registro = null;

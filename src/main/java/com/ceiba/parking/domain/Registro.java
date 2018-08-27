@@ -16,7 +16,6 @@ public class Registro {
 	}
 	
 	public Registro(String placa, String tipo, String tipoRegistro, LocalDateTime fechaEntrada, LocalDateTime fechaSalida, double valor) {
-		super();
 		this.placa = placa;
 		this.tipo = tipo;
 		this.tipoRegistro = tipoRegistro;
@@ -28,7 +27,6 @@ public class Registro {
 
 	public Registro(String placa, String tipo, String tipoRegistro, int cilindraje, LocalDateTime fechaEntrada, LocalDateTime fechaSalida,
 			double valor) {
-		super();
 		this.placa = placa;
 		this.tipo = tipo;
 		this.tipoRegistro = tipoRegistro;

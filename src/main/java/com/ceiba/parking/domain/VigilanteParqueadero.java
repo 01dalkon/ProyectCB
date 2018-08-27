@@ -4,11 +4,8 @@ import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.ceiba.parking.entity.RegistroEntity;
 import com.ceiba.parking.services.impl.RegistroImpl;
 
 @Service
@@ -72,7 +69,7 @@ public class VigilanteParqueadero {
 		if (horas == 0) {
 			horas++;
 		}
-		
+
 		double dias = Math.round(horas / 24);
 		int diasCompletos = (int) dias;
 		int horasRestantes = (int) (horas - (diasCompletos * 24));
