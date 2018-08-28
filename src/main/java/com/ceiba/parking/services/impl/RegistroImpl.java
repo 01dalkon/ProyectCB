@@ -67,7 +67,6 @@ public class RegistroImpl implements IRegistroService{
 	public RegistroEntity registroExiste(String placa, String tipoRegistro) {
 		return registroRepository.findByPlacaAndTipoRegistro(placa, tipoRegistro);
 	}
-
 	
 	@Override
 	@Transactional

@@ -40,16 +40,19 @@ public class VigilanteParqueadero {
 	public VigilanteParqueadero(RegistroImpl registroImpl) {
 		this.registroImpl = registroImpl;
 	}
+	
+	
 
 	public void fntEntraVehiculo(Registro registro) {
 
-		fntBuscarVehiculoExiste(registro);
+			fntBuscarVehiculoExiste(registro);
 
-		fntValidacionCupos(registro);
+			fntValidacionCupos(registro);
 
-		fntValidaPlaca(registro);
+			fntValidaPlaca(registro);
 
-		registroImpl.registrarEntrada(registro);
+			registroImpl.registrarEntrada(registro);
+	
 	}
 
 	public void fntSalidaVehiculo(String placa) {
@@ -116,6 +119,5 @@ public class VigilanteParqueadero {
 			throw new Excepcion(VEHICULO_EXISTE);
 		}
 	}
-	
-	
+
 }

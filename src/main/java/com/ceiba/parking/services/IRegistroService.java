@@ -5,6 +5,7 @@ import java.util.List;
 import com.ceiba.parking.domain.Registro;
 import com.ceiba.parking.entity.RegistroEntity;
 
+
 //Contratos
 public interface IRegistroService {
 
