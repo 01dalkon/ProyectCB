@@ -8,6 +8,10 @@ import java.time.LocalDateTime;
 
 import org.junit.Assert;
 import org.junit.Test;
+<<<<<<< HEAD
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> branch-master
 
 import com.ceiba.parking.ceibaparking.testdatabuilder.RegistroTestDataBuilder;
 import com.ceiba.parking.domain.Registro;
@@ -17,6 +21,12 @@ import com.ceiba.parking.services.impl.RegistroImpl;
 
 public class VigilanteParqueaderoTest {
 
+<<<<<<< HEAD
+=======
+	@Autowired
+	RegistroImpl registroImpl;
+	
+>>>>>>> branch-master
 	private static String PLACA = "HIS-63E";
 	private static String TIPO = "MOTO";
 	private static String TIPO_REGISTRO = "ENTRADA";
@@ -48,7 +58,11 @@ public class VigilanteParqueaderoTest {
 				.setFechaEntrada(LocalDateTime.parse("2018-08-27T07:00:00"))
 				.setFechaSalida(LocalDateTime.parse("2018-08-27T08:00:00")).build();
 
+<<<<<<< HEAD
 		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero();
+=======
+		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero(registroImpl);
+>>>>>>> branch-master
 
 		vigilanteParqueadero.fntCalcularCobro(registro, vigilanteParqueadero.valorDiaCarro,
 				vigilanteParqueadero.valorHoraCarro, 0);
@@ -61,7 +75,11 @@ public class VigilanteParqueaderoTest {
 				.setFechaEntrada(LocalDateTime.parse("2018-08-27T07:00:00"))
 				.setFechaSalida(LocalDateTime.parse("2018-08-27T18:00:00")).build();
 
+<<<<<<< HEAD
 		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero();
+=======
+		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero(registroImpl);
+>>>>>>> branch-master
 
 		vigilanteParqueadero.fntCalcularCobro(registro, vigilanteParqueadero.valorDiaCarro,
 				vigilanteParqueadero.valorHoraCarro, 0);
@@ -74,7 +92,11 @@ public class VigilanteParqueaderoTest {
 				.setFechaEntrada(LocalDateTime.parse("2018-08-27T07:00:00"))
 				.setFechaSalida(LocalDateTime.parse("2018-08-27T08:00:00")).build();
 
+<<<<<<< HEAD
 		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero();
+=======
+		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero(registroImpl);
+>>>>>>> branch-master
 
 		vigilanteParqueadero.fntCalcularCobro(registro, vigilanteParqueadero.valorDiaMoto,
 				vigilanteParqueadero.valorHoraMoto, 200);
@@ -88,7 +110,11 @@ public class VigilanteParqueaderoTest {
 				.setFechaEntrada(LocalDateTime.parse("2018-08-27T07:00:00"))
 				.setFechaSalida(LocalDateTime.parse("2018-08-27T08:00:00")).build();
 
+<<<<<<< HEAD
 		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero();
+=======
+		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero(registroImpl);
+>>>>>>> branch-master
 
 		vigilanteParqueadero.fntCalcularCobro(registro, vigilanteParqueadero.valorDiaMoto,
 				vigilanteParqueadero.valorHoraMoto, 1200);
@@ -158,7 +184,11 @@ public class VigilanteParqueaderoTest {
 		Registro registro = new RegistroTestDataBuilder().setPlaca("ABC-123")
 				.setFechaEntrada(LocalDateTime.parse("2018-08-24T07:00:00")).build();
 
+<<<<<<< HEAD
 		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero();
+=======
+		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero(registroImpl);
+>>>>>>> branch-master
 
 		try {
 			vigilanteParqueadero.fntValidaPlaca(registro);
@@ -173,7 +203,11 @@ public class VigilanteParqueaderoTest {
 		Registro registro = new RegistroTestDataBuilder().setPlaca("ABC-123")
 				.setFechaEntrada(LocalDateTime.parse("2018-08-27T07:00:00")).build();
 
+<<<<<<< HEAD
 		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero();
+=======
+		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero(registroImpl);
+>>>>>>> branch-master
 
 		try {
 			vigilanteParqueadero.fntValidaPlaca(registro);
@@ -188,7 +222,11 @@ public class VigilanteParqueaderoTest {
 		Registro registro = new RegistroTestDataBuilder().setPlaca("ABC-123")
 				.setFechaEntrada(LocalDateTime.parse("2018-08-26T07:00:00")).build();
 
+<<<<<<< HEAD
 		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero();
+=======
+		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero(registroImpl);
+>>>>>>> branch-master
 
 		try {
 			vigilanteParqueadero.fntValidaPlaca(registro);
