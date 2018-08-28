@@ -28,9 +28,6 @@ public class RegistroRestController {
 
 	@Autowired
 	IRegistroService registroService;
-	
-	@Autowired
-	RegistroImpl registroImpl;
 
 	@Autowired
 	VigilanteParqueadero vigilante;
