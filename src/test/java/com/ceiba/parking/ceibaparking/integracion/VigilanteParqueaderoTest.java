@@ -120,7 +120,7 @@ public class VigilanteParqueaderoTest {
 		assertNotNull(registroEntity);
 	}
 	
-	@Test
+/*	@Test
 	public void testEntradaVehiculo() {
 		
 		Registro registro = new RegistroTestDataBuilder().build();
@@ -128,5 +128,5 @@ public class VigilanteParqueaderoTest {
 		ResponseEntity<Void> entradaVehiculo = registroRestController.ingresaRegistro(registro);		
 	}
 	
-	
+*/	
 }

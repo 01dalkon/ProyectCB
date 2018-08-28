@@ -12,9 +12,7 @@ public interface IRegistroService {
 		public List<RegistroEntity> findAll();
 		
 		public RegistroEntity findById(Long id);
-			
-		public RegistroEntity save(RegistroEntity registro);
-		
+					
 		public void fntDeleteRegistro(Long id);
 
 		long contarCupos(String tipo, String tipoRegistro);

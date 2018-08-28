@@ -15,14 +15,16 @@ import com.ceiba.parking.services.IRegistroService;
 
 @Service
 public class RegistroImpl implements IRegistroService{
+	
+
+	@Autowired
+	private IRegistroRepository registroRepository;
+	
 	private DTO dto;
 	
 	public RegistroImpl () {
 		dto = new DTO();
 	}
-
-	@Autowired
-	private IRegistroRepository registroRepository;
 	
 	@Override
 	@Transactional
@@ -34,13 +36,6 @@ public class RegistroImpl implements IRegistroService{
 	@Transactional
 	public RegistroEntity findById(Long id) {
 		return registroRepository.findById(id).orElse(null);
-	}
-	
-
-	@Override
-	@Transactional
-	public RegistroEntity save(RegistroEntity registro) {
-		return registroRepository.save(registro);
 	}
 
 	@Override

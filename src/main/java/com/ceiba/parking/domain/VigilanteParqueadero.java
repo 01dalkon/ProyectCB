@@ -34,14 +34,13 @@ public class VigilanteParqueadero {
 
 	private RegistroImpl registroImpl;
 	
-	public VigilanteParqueadero() {
-		
-	}
 	public VigilanteParqueadero(RegistroImpl registroImpl) {
 		this.registroImpl = registroImpl;
 	}
 	
-	
+	public VigilanteParqueadero() {
+		
+	}
 
 	public void fntEntraVehiculo(Registro registro) {
 

@@ -21,16 +21,16 @@ import com.ceiba.parking.entity.RegistroEntity;
 import com.ceiba.parking.services.IRegistroService;
 import com.ceiba.parking.services.impl.RegistroImpl;
 
-@CrossOrigin(origins = { "*" })
 @RestController
+@CrossOrigin(origins = { "*" })
 @RequestMapping("/api")
 public class RegistroRestController {
+
+	@Autowired
+	IRegistroService registroService;
 	
 	@Autowired
-	private RegistroImpl registroImpl;
-	
-	@Autowired
-	private IRegistroService registroService;
+	RegistroImpl registroImpl;
 
 	@Autowired
 	VigilanteParqueadero vigilante;
