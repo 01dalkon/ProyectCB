@@ -16,18 +16,18 @@ public class VigilanteParqueadero {
 	private int TOTAL_CARROS = 20;
 	private int TOTAL_MOTOS = 10;
 
-	private String MENSAJE_CUPOS_CARRO = "Total de cupos agotados para carro";
-	private String MENSAJE_CUPOS_MOTO = "Total de cupos agotados para moto";
-	private String VALIDA_PLACA = "La placa con letra A no es permitida este día";
-	private String VEHICULO_EXISTE = "El vehiculo esta registrado";
+	public String MENSAJE_CUPOS_CARRO = "Total de cupos agotados para carro";
+	public String MENSAJE_CUPOS_MOTO = "Total de cupos agotados para moto";
+	public String VALIDA_PLACA = "La placa con letra A no es permitida este día";
+	public String VEHICULO_EXISTE = "El vehiculo esta registrado";
 
-	private double valorDiaCarro = 8000;
-	private double valorHoraCarro = 1000;
+	public double valorDiaCarro = 8000;
+	public double valorHoraCarro = 1000;
 
-	private double valorDiaMoto = 4000;
-	private double valorHoraMoto = 500;
+	public double valorDiaMoto = 4000;
+	public double valorHoraMoto = 500;
 
-	private double valorAdicional = 2000;
+	public double valorAdicional = 2000;
 
 	private RegistroImpl registroImpl;
 
