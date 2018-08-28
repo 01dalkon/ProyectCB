@@ -21,16 +21,16 @@ public class VigilanteParqueadero {
 	public String VALIDA_PLACA = "La placa con letra A no es permitida este día";
 	public String VEHICULO_EXISTE = "El vehiculo esta registrado";
 
-	private double valorDiaCarro = 8000;
-	private double valorHoraCarro = 1000;
+	public double valorDiaCarro = 8000;
+	public double valorHoraCarro = 1000;
 
-	private double valorDiaMoto = 4000;
-	private double valorHoraMoto = 500;
+	public double valorDiaMoto = 4000;
+	public double valorHoraMoto = 500;
 
-	private double valorAdicional = 2000;
+	public double valorAdicional = 2000;
 	
-	private int totalHorasDia = 24;
-	private int totalHorasCobroDia = 9;
+	public int totalHorasDia = 24;
+	public int totalHorasCobroDia = 9;
 
 	private RegistroImpl registroImpl;
 	
@@ -116,4 +116,6 @@ public class VigilanteParqueadero {
 			throw new Excepcion(VEHICULO_EXISTE);
 		}
 	}
+	
+	
 }
