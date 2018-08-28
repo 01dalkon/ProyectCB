@@ -1,8 +1,11 @@
 package com.ceiba.parking.dto;
 
+import org.springframework.stereotype.Service;
+
 import com.ceiba.parking.domain.Registro;
 import com.ceiba.parking.entity.RegistroEntity;
 
+@Service
 public class DTO {
 
 	public Registro convertirADominio(RegistroEntity registroEntity) {

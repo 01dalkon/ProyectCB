@@ -16,22 +16,21 @@ public class VigilanteParqueadero {
 	private int TOTAL_CARROS = 20;
 	private int TOTAL_MOTOS = 10;
 
-	public String MENSAJE_CUPOS_CARRO = "Total de cupos agotados para carro";
-	public String MENSAJE_CUPOS_MOTO = "Total de cupos agotados para moto";
-	public String VALIDA_PLACA = "La placa con letra A no es permitida este día";
-	public String VEHICULO_EXISTE = "El vehiculo esta registrado";
+	private String MENSAJE_CUPOS_CARRO = "Total de cupos agotados para carro";
+	private String MENSAJE_CUPOS_MOTO = "Total de cupos agotados para moto";
+	private String VALIDA_PLACA = "La placa con letra A no es permitida este día";
+	private String VEHICULO_EXISTE = "El vehiculo esta registrado";
 
-	public double valorDiaCarro = 8000;
-	public double valorHoraCarro = 1000;
+	private double valorDiaCarro = 8000;
+	private double valorHoraCarro = 1000;
 
-	public double valorDiaMoto = 4000;
-	public double valorHoraMoto = 500;
+	private double valorDiaMoto = 4000;
+	private double valorHoraMoto = 500;
 
-	public double valorAdicional = 2000;
+	private double valorAdicional = 2000;
 
-	
-	public int totalHorasDia = 24;
-	public int totalHorasCobroDia = 9;
+	private int totalHorasDia = 24;
+	private int totalHorasCobroDia = 9;
 
 
 	private RegistroImpl registroImpl;
@@ -43,6 +42,7 @@ public class VigilanteParqueadero {
 	public void fntEntraVehiculo(Registro registro) {
 
 			try {
+				
 				fntBuscarVehiculoExiste(registro);
 
 				fntValidacionCupos(registro);
@@ -50,6 +50,7 @@ public class VigilanteParqueadero {
 				fntValidaPlaca(registro);
 
 				registroImpl.registrarEntrada(registro);
+				
 			} catch (Exception e) {
 				throw e;
 			}
@@ -58,6 +59,7 @@ public class VigilanteParqueadero {
 
 	public void fntSalidaVehiculo(String placa) {
 
+		try {
 		Registro registro = registroImpl.buscarPorPlacaTipoRegistro(placa, "ENTRADA");
 		registro.setFechaSalida(LocalDateTime.now());
 
@@ -69,6 +71,9 @@ public class VigilanteParqueadero {
 
 		registroImpl.registrarSalida(registro);
 
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 
 	public void fntCalcularCobro(Registro registro, double valorDia, double valorHora, double valorAdicional) {
@@ -125,4 +130,127 @@ public class VigilanteParqueadero {
 		}
 	}
 
+	public String getTIPO_CARRO() {
+		return TIPO_CARRO;
+	}
+
+	public void setTIPO_CARRO(String tIPO_CARRO) {
+		TIPO_CARRO = tIPO_CARRO;
+	}
+
+	public String getTIPO_MOTO() {
+		return TIPO_MOTO;
+	}
+
+	public void setTIPO_MOTO(String tIPO_MOTO) {
+		TIPO_MOTO = tIPO_MOTO;
+	}
+
+	public int getTOTAL_CARROS() {
+		return TOTAL_CARROS;
+	}
+
+	public void setTOTAL_CARROS(int tOTAL_CARROS) {
+		TOTAL_CARROS = tOTAL_CARROS;
+	}
+
+	public int getTOTAL_MOTOS() {
+		return TOTAL_MOTOS;
+	}
+
+	public void setTOTAL_MOTOS(int tOTAL_MOTOS) {
+		TOTAL_MOTOS = tOTAL_MOTOS;
+	}
+
+	public String getMENSAJE_CUPOS_CARRO() {
+		return MENSAJE_CUPOS_CARRO;
+	}
+
+	public void setMENSAJE_CUPOS_CARRO(String mENSAJE_CUPOS_CARRO) {
+		MENSAJE_CUPOS_CARRO = mENSAJE_CUPOS_CARRO;
+	}
+
+	public String getMENSAJE_CUPOS_MOTO() {
+		return MENSAJE_CUPOS_MOTO;
+	}
+
+	public void setMENSAJE_CUPOS_MOTO(String mENSAJE_CUPOS_MOTO) {
+		MENSAJE_CUPOS_MOTO = mENSAJE_CUPOS_MOTO;
+	}
+
+	public String getVALIDA_PLACA() {
+		return VALIDA_PLACA;
+	}
+
+	public void setVALIDA_PLACA(String vALIDA_PLACA) {
+		VALIDA_PLACA = vALIDA_PLACA;
+	}
+
+	public String getVEHICULO_EXISTE() {
+		return VEHICULO_EXISTE;
+	}
+
+	public void setVEHICULO_EXISTE(String vEHICULO_EXISTE) {
+		VEHICULO_EXISTE = vEHICULO_EXISTE;
+	}
+
+	public double getValorDiaCarro() {
+		return valorDiaCarro;
+	}
+
+	public void setValorDiaCarro(double valorDiaCarro) {
+		this.valorDiaCarro = valorDiaCarro;
+	}
+
+	public double getValorHoraCarro() {
+		return valorHoraCarro;
+	}
+
+	public void setValorHoraCarro(double valorHoraCarro) {
+		this.valorHoraCarro = valorHoraCarro;
+	}
+
+	public double getValorDiaMoto() {
+		return valorDiaMoto;
+	}
+
+	public void setValorDiaMoto(double valorDiaMoto) {
+		this.valorDiaMoto = valorDiaMoto;
+	}
+
+	public double getValorHoraMoto() {
+		return valorHoraMoto;
+	}
+
+	public void setValorHoraMoto(double valorHoraMoto) {
+		this.valorHoraMoto = valorHoraMoto;
+	}
+
+	public double getValorAdicional() {
+		return valorAdicional;
+	}
+
+	public void setValorAdicional(double valorAdicional) {
+		this.valorAdicional = valorAdicional;
+	}
+
+	public int getTotalHorasDia() {
+		return totalHorasDia;
+	}
+
+	public void setTotalHorasDia(int totalHorasDia) {
+		this.totalHorasDia = totalHorasDia;
+	}
+
+	public int getTotalHorasCobroDia() {
+		return totalHorasCobroDia;
+	}
+
+	public void setTotalHorasCobroDia(int totalHorasCobroDia) {
+		this.totalHorasCobroDia = totalHorasCobroDia;
+	}
+	
+	
+
+	
 }

@@ -98,7 +98,7 @@ public class VigilanteParqueaderoTest {
 		try {
 			vigilanteParqueadero.fntBuscarVehiculoExiste(registro);
 		} catch (Exception e) {
-			assertEquals(vigilanteParqueadero.VEHICULO_EXISTE, e.getMessage());
+			assertEquals(vigilanteParqueadero.getVEHICULO_EXISTE(), e.getMessage());
 		}
 		
 	}

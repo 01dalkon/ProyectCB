@@ -19,7 +19,6 @@ import com.ceiba.parking.domain.Registro;
 import com.ceiba.parking.domain.VigilanteParqueadero;
 import com.ceiba.parking.entity.RegistroEntity;
 import com.ceiba.parking.services.IRegistroService;
-import com.ceiba.parking.services.impl.RegistroImpl;
 
 @RestController
 @CrossOrigin(origins = { "*" })

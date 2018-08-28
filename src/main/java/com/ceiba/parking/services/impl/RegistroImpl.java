@@ -20,11 +20,8 @@ public class RegistroImpl implements IRegistroService{
 	@Autowired
 	private IRegistroRepository registroRepository;
 	
+	@Autowired
 	private DTO dto;
-	
-	public RegistroImpl () {
-		dto = new DTO();
-	}
 	
 	@Override
 	@Transactional
@@ -42,7 +39,7 @@ public class RegistroImpl implements IRegistroService{
 	@Transactional
 	public void fntDeleteRegistro(Long id) {
 		registroRepository.deleteById(id);
-	}
+	} 
 
 	@Override
 	@Transactional
