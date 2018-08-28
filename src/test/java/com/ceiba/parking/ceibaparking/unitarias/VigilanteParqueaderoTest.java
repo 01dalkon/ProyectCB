@@ -114,7 +114,7 @@ public class VigilanteParqueaderoTest {
 		try {
 			vigilanteParqueadero.fntValidacionCupos(registro);
 		} catch (Exception e) {
-			assertEquals(vigilanteParqueadero.getMENSAJE_CUPOS_CARRO(), e.getMessage());
+			assertEquals(vigilanteParqueadero.getMensajeCuposCarro(), e.getMessage());
 		}
 	}
 
@@ -132,7 +132,7 @@ public class VigilanteParqueaderoTest {
 		try {
 			vigilanteParqueadero.fntValidacionCupos(registro);
 		} catch (Exception e) {
-			Assert.assertEquals(vigilanteParqueadero.getMENSAJE_CUPOS_MOTO(), e.getMessage());
+			Assert.assertEquals(vigilanteParqueadero.getMensajeCuposMoto(), e.getMessage());
 		}
 	}
 
@@ -151,7 +151,7 @@ public class VigilanteParqueaderoTest {
 		try {
 			vigilanteParqueadero.fntBuscarVehiculoExiste(registro);
 		} catch (Exception e) {
-			Assert.assertEquals(vigilanteParqueadero.getVEHICULO_EXISTE(), e.getMessage());
+			Assert.assertEquals(vigilanteParqueadero.getVehiculoExiste(), e.getMessage());
 		}
 	}
 
@@ -166,7 +166,7 @@ public class VigilanteParqueaderoTest {
 		try {
 			vigilanteParqueadero.fntValidaPlaca(registro);
 		} catch (Exception e) {
-			Assert.assertEquals(vigilanteParqueadero.getVALIDA_PLACA(), e.getMessage());
+			Assert.assertEquals(vigilanteParqueadero.getValidaPlaca(), e.getMessage());
 		}
 	}
 
@@ -181,7 +181,7 @@ public class VigilanteParqueaderoTest {
 		try {
 			vigilanteParqueadero.fntValidaPlaca(registro);
 		} catch (Exception e) {
-			Assert.assertEquals(vigilanteParqueadero.getVALIDA_PLACA(), e.getMessage());
+			Assert.assertEquals(vigilanteParqueadero.getValidaPlaca(), e.getMessage());
 		}
 	}
 
@@ -196,7 +196,7 @@ public class VigilanteParqueaderoTest {
 		try {
 			vigilanteParqueadero.fntValidaPlaca(registro);
 		} catch (Exception e) {
-			Assert.assertEquals(vigilanteParqueadero.getVALIDA_PLACA(), e.getMessage());
+			Assert.assertEquals(vigilanteParqueadero.getValidaPlaca(), e.getMessage());
 		}
 	}
 

@@ -11,12 +11,13 @@ public class DTO {
 	public Registro convertirADominio(RegistroEntity registroEntity) {
 		Registro registro = null;
 		
-			if (registroEntity.getTipo().equals("CARRO")) {
+
+			if ("CARRO".equals(registroEntity.getTipo())) {
 				registro = new Registro(registroEntity.getPlaca(), registroEntity.getTipo(), registroEntity.getTipoRegistro(),
 						registroEntity.getFechaEntrada(), registroEntity.getFechaSalida(),
 						registroEntity.getValor());
 			}
-			if (registroEntity.getTipo().equals("MOTO")) {
+			if ("MOTO".equals(registroEntity.getTipo())) {
 				registro = new Registro(registroEntity.getPlaca(), registroEntity.getTipo(),registroEntity.getTipoRegistro(),
 						registroEntity.getCilindraje(), registroEntity.getFechaEntrada(),
 						registroEntity.getFechaSalida(), registroEntity.getValor());
@@ -33,7 +34,7 @@ public class DTO {
 		registroEntity.setFechaSalida(registro.getFechaSalida());
 		registroEntity.setValor(registro.getValor());
 
-		if (registro.getTipo().equals("MOTO")) {
+		if ("MOTO".equals(registro.getTipo())) {
 			registroEntity.setCilindraje(registro.getCilindraje());
 		}
 

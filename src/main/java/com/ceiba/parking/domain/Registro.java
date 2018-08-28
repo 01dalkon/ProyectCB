@@ -90,8 +90,8 @@ public class Registro {
 		return valor;
 	}
 
-	public double setValor(double valor) {
-		return this.valor = valor;
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
 }
