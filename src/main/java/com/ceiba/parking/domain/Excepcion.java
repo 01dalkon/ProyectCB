@@ -7,10 +7,10 @@ public class Excepcion extends RuntimeException{
 	private static int TOTAL_CARROS = 20;
 	private static int TOTAL_MOTOS = 10;
 
-	public static String MENSAJE_CUPOS_CARRO = "Total de cupos agotados para carro";
-	public static String MENSAJE_CUPOS_MOTO = "Total de cupos agotados para moto";
-	public static String VALIDA_PLACA = "La placa con letra A no es permitida este día";
-	public static String VEHICULO_EXISTE = "El vehiculo esta registrado";
+	private static String MENSAJE_CUPOS_CARRO = "Total de cupos agotados para carro";
+	private static String MENSAJE_CUPOS_MOTO = "Total de cupos agotados para moto";
+	private static String VALIDA_PLACA = "La placa con letra A no es permitida este día";
+	private static String VEHICULO_EXISTE = "El vehiculo esta registrado";
 
 
 	private static final long serialVersionUID = 1L;
