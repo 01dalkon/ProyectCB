@@ -42,14 +42,18 @@ public class VigilanteParqueadero {
 
 	public void fntEntraVehiculo(Registro registro) {
 
-			fntBuscarVehiculoExiste(registro);
+			try {
+				fntBuscarVehiculoExiste(registro);
 
-			fntValidacionCupos(registro);
+				fntValidacionCupos(registro);
 
-			fntValidaPlaca(registro);
+				fntValidaPlaca(registro);
 
-			registroImpl.registrarEntrada(registro);
-	
+				registroImpl.registrarEntrada(registro);
+			} catch (Exception e) {
+				throw e;
+			}
+
 	}
 
 	public void fntSalidaVehiculo(String placa) {
@@ -69,7 +73,7 @@ public class VigilanteParqueadero {
 
 	public void fntCalcularCobro(Registro registro, double valorDia, double valorHora, double valorAdicional) {
 
-		double valorCobrar = valorAdicional;
+		double valorCobrar = 0;
 		double horas = Duration.between(registro.getFechaEntrada(), registro.getFechaSalida()).toHours();
 
 		if (horas == 0) {
@@ -86,7 +90,11 @@ public class VigilanteParqueadero {
 		}
 		valorCobrar += diasCompletos * valorDia;
 		valorCobrar += horasRestantes * valorHora;
-
+		
+		if (registro.getCilindraje()>=500) {
+			valorCobrar += valorAdicional;
+		}
+		
 		registro.setValor(valorCobrar);
 	}
 

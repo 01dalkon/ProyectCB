@@ -81,23 +81,23 @@ public class VigilanteParqueaderoTest {
 		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero(registroImpl);
 
 		vigilanteParqueadero.fntCalcularCobro(registro, vigilanteParqueadero.valorDiaMoto,
-				vigilanteParqueadero.valorHoraMoto, 200);
+				vigilanteParqueadero.valorHoraMoto, 0);
 
-		Assert.assertEquals(700, (long) registro.getValor());
+		Assert.assertEquals(500, (long) registro.getValor());
 	}
 
 	@Test
 	public void testFntCalcularCobroMoto500() {
-		Registro registro = new RegistroTestDataBuilder().setTipo("MOTO")
+		Registro registro = new RegistroTestDataBuilder().setTipo("MOTO").setCilindraje(500)
 				.setFechaEntrada(LocalDateTime.parse("2018-08-27T07:00:00"))
 				.setFechaSalida(LocalDateTime.parse("2018-08-27T08:00:00")).build();
 
 		VigilanteParqueadero vigilanteParqueadero = new VigilanteParqueadero(registroImpl);
 
 		vigilanteParqueadero.fntCalcularCobro(registro, vigilanteParqueadero.valorDiaMoto,
-				vigilanteParqueadero.valorHoraMoto, 1200);
+				vigilanteParqueadero.valorHoraMoto, 2000);
 
-		Assert.assertEquals(1700, (long) registro.getValor());
+		Assert.assertEquals(2500, (long) registro.getValor());
 	}
 
 	@Test
@@ -116,7 +116,6 @@ public class VigilanteParqueaderoTest {
 		} catch (Exception e) {
 			assertEquals(vigilanteParqueadero.MENSAJE_CUPOS_CARRO, e.getMessage());
 		}
-
 	}
 
 	@Test
