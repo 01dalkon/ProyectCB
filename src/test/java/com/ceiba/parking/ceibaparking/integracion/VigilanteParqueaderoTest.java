@@ -119,7 +119,7 @@ public class VigilanteParqueaderoTest {
 		
 		assertNotNull(registroEntity);
 	}
-<<<<<<< HEAD
+
 	
 /*	@Test
 	public void testEntradaVehiculo() {
@@ -130,6 +130,5 @@ public class VigilanteParqueaderoTest {
 	}
 	
 */	
-=======
->>>>>>> branch-master
+
 }

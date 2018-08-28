@@ -28,21 +28,16 @@ public class VigilanteParqueadero {
 	public double valorHoraMoto = 500;
 
 	public double valorAdicional = 2000;
-<<<<<<< HEAD
+
 	
 	public int totalHorasDia = 24;
 	public int totalHorasCobroDia = 9;
-=======
->>>>>>> branch-master
+
 
 	private RegistroImpl registroImpl;
 	
 	public VigilanteParqueadero(RegistroImpl registroImpl) {
 		this.registroImpl = registroImpl;
-	}
-	
-	public VigilanteParqueadero() {
-		
 	}
 
 	public void fntEntraVehiculo(Registro registro) {
