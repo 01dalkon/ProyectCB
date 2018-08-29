@@ -165,23 +165,5 @@ public class VigilanteParqueadero {
 	public String getValidaPlaca() {
 		return VALIDA_PLACA;
 	}
-
-	public void setValorDiaCarro(double valorDiaCarro) {
-		this.valorDiaCarro = valorDiaCarro;
-	}
-
-	public void setValorHoraCarro(double valorHoraCarro) {
-		this.valorHoraCarro = valorHoraCarro;
-	}
-
-	public void setValorDiaMoto(double valorDiaMoto) {
-		this.valorDiaMoto = valorDiaMoto;
-	}
-
-	public void setValorHoraMoto(double valorHoraMoto) {
-		this.valorHoraMoto = valorHoraMoto;
-	}
-
-	
 	
 }

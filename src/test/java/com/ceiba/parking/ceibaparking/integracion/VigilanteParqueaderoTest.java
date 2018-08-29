@@ -120,15 +120,27 @@ public class VigilanteParqueaderoTest {
 		assertNotNull(registroEntity);
 	}
 
-/*	
+
 	@Test
 	public void testEntradaVehiculo() {
 		
-		Registro registro = new RegistroTestDataBuilder().build();
+		Registro registro = new RegistroTestDataBuilder().setPlaca("III-1111").build();
 		
+		@SuppressWarnings("unused")
 		ResponseEntity<Void> entradaVehiculo = registroRestController.ingresaRegistro(registro);	
 		
 		assertNotNull(registro);
 	}
-*/
+	
+	@Test
+	public void testSalidaVehiculo() {
+		
+		Registro registro = new RegistroTestDataBuilder().build();
+		
+		@SuppressWarnings("unused")
+		ResponseEntity<Void> entradaVehiculo = registroRestController.salidaRegistro(registro);	
+		
+		assertNotNull(registro);
+	}
+
 }
